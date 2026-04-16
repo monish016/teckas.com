@@ -1,0 +1,153 @@
+/* ============================================================
+   COLD DM LANDING PAGES — NO NAVIGATION
+   Stripped-down, conversion-optimized pages
+   ============================================================ */
+
+/* Hide nav and footer, show only conversion content */
+.landing-page .navbar,
+.landing-page .footer,
+.landing-page .mobile-cta { display: none !important; }
+
+/* Landing Hero */
+.landing-hero {
+  padding: 60px 0 48px;
+  background: linear-gradient(135deg, var(--navy), var(--blue));
+  color: var(--white);
+  text-align: center;
+}
+.landing-hero .container { max-width: 720px; }
+.landing-hero .trust-line {
+  font-size: 13px;
+  color: var(--teal);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 16px;
+}
+.landing-hero h1 { color: var(--white); font-size: 40px; margin-bottom: 16px; }
+.landing-hero p { color: rgba(255,255,255,0.8); font-size: 18px; margin-bottom: 28px; }
+.landing-hero .hero-trust {
+  display: flex; justify-content: center; gap: 16px; flex-wrap: wrap;
+  margin-top: 20px;
+  font-size: 13px; color: rgba(255,255,255,0.85);
+}
+.landing-hero .hero-trust span { display: inline-flex; align-items: center; gap: 6px; }
+
+/* Landing Sections */
+.landing-section { padding: 56px 0; }
+.landing-section .container { max-width: 800px; }
+.landing-section h2 { font-size: 30px; text-align: center; margin-bottom: 32px; }
+
+/* Pain Cards */
+.landing-pains { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.landing-pain {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 24px;
+  text-align: center;
+  border-top: 3px solid #E53E3E;
+}
+.landing-pain p { font-size: 15px; color: var(--text-body); }
+
+/* Solution columns */
+.landing-solution { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.landing-sol-item {
+  text-align: center;
+  padding: 24px;
+  background: var(--light-gray);
+  border-radius: var(--radius-md);
+}
+.landing-sol-item h4 { margin-bottom: 8px; }
+.landing-sol-item p { font-size: 14px; color: var(--text-light); }
+
+/* Pricing snapshot */
+.landing-price {
+  text-align: center;
+  background: var(--light-gray);
+  border-radius: var(--radius-lg);
+  padding: 32px;
+}
+.landing-price .price-big {
+  font-size: 42px; font-weight: 800; color: var(--green);
+}
+.landing-price .price-compare {
+  font-size: 16px; color: var(--text-light);
+  text-decoration: line-through;
+  margin-bottom: 4px;
+}
+.landing-price .price-note { font-size: 14px; color: var(--text-light); margin-top: 8px; }
+
+/* Testimonial */
+.landing-testimonial {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 32px;
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+}
+.landing-testimonial .testimonial-text { font-style: italic; margin-bottom: 16px; }
+
+/* CTA Section */
+.landing-cta {
+  padding: 64px 0;
+  background: var(--navy);
+  color: var(--white);
+  text-align: center;
+}
+.landing-cta h2 { color: var(--white); margin-bottom: 16px; }
+.landing-cta p { color: rgba(255,255,255,0.75); margin-bottom: 28px; }
+
+/* Landing FAQ */
+.landing-faq { max-width: 600px; margin: 0 auto; }
+
+/* === Tablet === */
+@media (max-width: 900px) {
+  .landing-hero h1 { font-size: 32px; }
+  .landing-hero p { font-size: 16px; }
+  .landing-section h2 { font-size: 26px; }
+}
+
+/* === Mobile === */
+@media (max-width: 768px) {
+  .landing-hero { padding: 40px 0 36px; }
+  .landing-hero .container { max-width: 100%; padding: 0 16px; }
+  .landing-hero h1 { font-size: 26px; line-height: 1.2; }
+  .landing-hero p { font-size: 15px; margin-bottom: 20px; }
+  .landing-hero .trust-line { font-size: 11px; }
+  .landing-hero .hero-trust { flex-direction: column; gap: 6px; font-size: 12px; }
+  .landing-hero .btn { width: 100%; max-width: 320px; }
+
+  .landing-section { padding: 40px 0; }
+  .landing-section .container { max-width: 100%; padding: 0 16px; }
+  .landing-section h2 { font-size: 22px; margin-bottom: 24px; }
+
+  .landing-pains, .landing-solution { grid-template-columns: 1fr; gap: 12px; }
+  .landing-pain { padding: 20px; }
+  .landing-pain p { font-size: 14px; }
+  .landing-sol-item { padding: 20px; }
+  .landing-sol-item p { font-size: 13px; }
+
+  .landing-price { padding: 24px; }
+  .landing-price .price-big { font-size: 32px; }
+  .landing-price .price-compare { font-size: 14px; }
+  .landing-price .price-note { font-size: 13px; }
+
+  .landing-testimonial { padding: 24px; }
+  .landing-testimonial p { font-size: 14px; }
+
+  .landing-cta { padding: 48px 0; }
+  .landing-cta h2 { font-size: 24px; }
+  .landing-cta p { font-size: 14px; }
+  .landing-cta .btn { width: 100%; max-width: 320px; }
+
+  .landing-faq { max-width: 100%; }
+}
+
+/* === Small Mobile === */
+@media (max-width: 400px) {
+  .landing-hero h1 { font-size: 22px; }
+  .landing-price .price-big { font-size: 28px; }
+}
