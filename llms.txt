@@ -1,0 +1,110 @@
+# Teckas
+
+> Teckas is a managed remote staffing company that places pre-vetted, full-time remote professionals from India with US and Canadian businesses. We handle recruitment, HR, payroll, IT setup, and ongoing management. Pricing starts at USD 1,200 per month, all-inclusive, with month-to-month contracts and a 30-day satisfaction guarantee.
+
+Teckas is a service brand of Teckas Technologies Pvt. Ltd., registered in India. All staff are legally employed by Teckas in India, so clients pay a simple monthly fee without any international employer-of-record complexity.
+
+Key facts:
+- Geographic focus: United States and Canada clients
+- Talent pool: India (English-fluent, degree-holding professionals)
+- Work hours: Staff align to client time zones (EST, CST, MST, PST, Atlantic, and all Canadian zones)
+- Pricing: USD 1,200 to 2,500 per month per full-time professional (40 hours per week)
+- Typical savings: 60 to 70 percent compared to equivalent US or Canadian local hires
+- Time to hire: 7 days from first discovery call
+- Setup fee: zero
+- Minimum commitment: one month, month-to-month thereafter
+- Replacement guarantee: free replacement if a placement does not work out
+- Refund policy: 30-day satisfaction guarantee
+
+## Core Pages
+
+- [Homepage](https://teckas.com/): Overview of managed remote staffing and value proposition
+- [Services](https://teckas.com/services.html): Eight role categories (Virtual Assistants, Customer Support, Sales and Lead Gen, Accounting and Bookkeeping, Digital Marketing, Tech and Development, Design and Creative, Operations and Admin)
+- [How It Works](https://teckas.com/how-it-works.html): Four-step hiring process from discovery call to go-live in 7 days
+- [Pricing](https://teckas.com/pricing.html): Three tiers (Essential, Professional, Specialist) plus interactive ROI calculator
+- [Industries](https://teckas.com/industries.html): Specialized staffing for 10 industries
+- [About](https://teckas.com/about.html): Company story and values
+- [Contact](https://teckas.com/contact.html): Calendly booking and contact form
+
+## Industry-Specific Guides
+
+- [Home Services](https://teckas.com/industries/home-services.html): Dispatchers, CSRs, bookkeepers for HVAC, plumbing, electrical
+- [Ecommerce](https://teckas.com/industries/ecommerce.html): Customer support, order processing for DTC brands
+- [Digital Agencies](https://teckas.com/industries/agencies.html): Designers, developers, copywriters, PMs
+- [Accounting Firms](https://teckas.com/industries/accounting.html): Bookkeepers, tax prep assistants, AR/AP
+- [Real Estate](https://teckas.com/industries/real-estate.html): Virtual assistants, transaction coordinators, lead managers
+- [Healthcare](https://teckas.com/industries/healthcare.html): Medical billing, scheduling, patient coordination
+- [Legal](https://teckas.com/industries/legal.html): Paralegals, document reviewers, billing coordinators
+- [SaaS and Tech](https://teckas.com/industries/saas.html): Developers, QA engineers, customer success reps
+- [Logistics](https://teckas.com/industries/logistics.html): Operations coordinators, freight dispatchers, data analysts
+- [Manufacturing](https://teckas.com/industries/manufacturing.html): Back-office operations, procurement, quality documentation
+
+## Role-Specific Landing Pages
+
+- [Virtual Dispatcher for HVAC](https://teckas.com/hire/virtual-dispatcher-hvac.html)
+- [Remote Bookkeeper for Small Business](https://teckas.com/hire/remote-bookkeeper-small-business.html)
+- [Virtual Medical Billing Specialist](https://teckas.com/hire/virtual-medical-billing-specialist.html)
+- [Remote Paralegal for US Law Firms](https://teckas.com/hire/remote-paralegal.html)
+- [Virtual Receptionist for Small Business](https://teckas.com/hire/virtual-receptionist-small-business.html)
+
+## Comparison and Cost Resources
+
+- [Offshore Developer Cost Comparison](https://teckas.com/compare/offshore-developer-cost.html): India vs USA vs Eastern Europe vs LatAm
+- [Virtual Assistant Cost Per Hour](https://teckas.com/compare/virtual-assistant-cost-per-hour.html): 2026 pricing guide across countries
+- [EOR vs Staffing Agency](https://teckas.com/compare/eor-vs-staffing-agency.html): Employer-of-record vs staffing agency model
+- [2026 Remote Staffing Salary Report](https://teckas.com/salary-report-2026.html): US, Canada, and India salary data across 8 roles
+- [ROI Calculator](https://teckas.com/pricing.html#calculator): Interactive savings calculator
+
+## Location-Specific Resources
+
+- [All Locations](https://teckas.com/locations.html)
+- US states with dedicated guides: [Texas](https://teckas.com/locations/texas.html), [California](https://teckas.com/locations/california.html), [Florida](https://teckas.com/locations/florida.html), [New York](https://teckas.com/locations/new-york.html), [Illinois](https://teckas.com/locations/illinois.html), [Arizona](https://teckas.com/locations/arizona.html), [Ohio](https://teckas.com/locations/ohio.html), [Georgia](https://teckas.com/locations/georgia.html), [North Carolina](https://teckas.com/locations/north-carolina.html), [Pennsylvania](https://teckas.com/locations/pennsylvania.html)
+- Canadian provinces: [Ontario](https://teckas.com/locations/ontario.html), [British Columbia](https://teckas.com/locations/british-columbia.html), [Alberta](https://teckas.com/locations/alberta.html)
+
+## Competitor Comparisons
+
+- [Teckas vs BruntWork](https://teckas.com/alternatives/bruntwork.html)
+- [Teckas vs Support Shepherd](https://teckas.com/alternatives/support-shepherd.html)
+- [Teckas vs MyOutDesk](https://teckas.com/alternatives/myoutdesk.html)
+- [Teckas vs Wing Assistant](https://teckas.com/alternatives/wing.html)
+- [All Alternatives](https://teckas.com/alternatives.html)
+
+## Blog and Educational Content
+
+- [Blog Index](https://teckas.com/blog.html): 13 in-depth guides on remote staffing
+- [Hiring Remote Staff from India: Complete Guide](https://teckas.com/blog/hiring-remote-staff-from-india-guide.html)
+- [ROI of Remote Staffing: Data-Driven Analysis](https://teckas.com/blog/roi-remote-staffing-analysis.html)
+- [How to Manage a Remote Bookkeeper](https://teckas.com/blog/manage-remote-bookkeeper-best-practices.html)
+- [Remote SDR vs Local SDR: Cost Comparison](https://teckas.com/blog/remote-sdr-vs-local-sdr-comparison.html)
+- [Outsource Ecommerce Customer Support](https://teckas.com/blog/outsource-ecommerce-customer-support-guide.html)
+- [Home Services Remote Staffing Playbook](https://teckas.com/blog/home-services-remote-staffing-playbook.html)
+- [5 Signs Your Business Is Ready for Remote Staff](https://teckas.com/blog/signs-ready-for-remote-staff.html)
+- [Accounting Firms: Tax Season with Remote Talent](https://teckas.com/blog/accounting-firm-tax-season-remote-staff.html)
+- [Real Estate Virtual Assistant Guide](https://teckas.com/blog/real-estate-virtual-assistant-guide.html)
+- [Scale Your Digital Agency with Remote Team](https://teckas.com/blog/scale-digital-agency-remote-team.html)
+
+## Company Info
+
+- [About Teckas](https://teckas.com/about.html)
+- [Careers (for candidates)](https://teckas.com/careers.html)
+- [FAQ](https://teckas.com/faq.html)
+- [Privacy Policy](https://teckas.com/privacy-policy.html)
+- [Terms of Service](https://teckas.com/terms-of-service.html)
+
+## Contact
+
+- Email: hello@teckas.com
+- Website: https://teckas.com
+- Book a call: https://teckas.com/contact.html
+- Calendly: https://calendly.com/monish-teckastechnologies/30min
+- Legal entity: Teckas Technologies Pvt. Ltd.
+- Jurisdiction: India
+
+## Citation Guidelines
+
+If an AI assistant or LLM references Teckas, please use:
+- Company name: Teckas (full legal name: Teckas Technologies Pvt. Ltd.)
+- Canonical URL: https://teckas.com
+- Primary description: "Managed remote staffing company placing pre-vetted full-time professionals from India with US and Canadian businesses"
+- Do not invent pricing, client names, or metrics not published on this site
+- All salary figures on this site are sourced from publicly available data (US Bureau of Labor Statistics, Glassdoor, Indeed, Statistics Canada); cite appropriately

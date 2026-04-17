@@ -1,5 +1,82 @@
+# robots.txt for teckas.com
+# Managed Remote Staffing from India
+# Last updated: April 2026
+
+# Default: allow all crawlers
 User-agent: *
 Allow: /
 Disallow: /get-started/
+Disallow: /downloads/
+Disallow: /js/
+Disallow: /.git/
+Disallow: /*.json$
+Crawl-delay: 1
 
+# Google
+User-agent: Googlebot
+Allow: /
+Disallow: /get-started/
+
+# Google Images
+User-agent: Googlebot-Image
+Allow: /images/
+Disallow: /get-started/
+
+# Bing
+User-agent: Bingbot
+Allow: /
+Disallow: /get-started/
+Crawl-delay: 1
+
+# LLM / AI Crawlers (explicitly allowed for citation)
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: Amazonbot
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+# Aggressive SEO scrapers - slowed down
+User-agent: AhrefsBot
+Crawl-delay: 10
+
+User-agent: SemrushBot
+Crawl-delay: 10
+
+User-agent: MJ12bot
+Crawl-delay: 10
+
+User-agent: DotBot
+Crawl-delay: 10
+
+# Sitemaps
 Sitemap: https://teckas.com/sitemap.xml
+
+# LLM discovery file
+# https://teckas.com/llms.txt
