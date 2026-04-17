@@ -153,6 +153,107 @@ document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
   });
 });
 
+// === Google Analytics Custom Event Tracking ===
+function gaTrack(eventName, params) {
+  if (typeof gtag === 'function') {
+    gtag('event', eventName, params || {});
+  }
+}
+
+// Track CTA button clicks (Book a Call, Discovery Call, etc.)
+document.querySelectorAll('a.btn, a.nav-cta').forEach(function(btn) {
+  btn.addEventListener('click', function() {
+    var label = (btn.textContent || '').replace(/[^\x20-\x7E]/g, '').trim();
+    var href = btn.getAttribute('href') || '';
+    gaTrack('cta_click', {
+      button_text: label.substring(0, 80),
+      destination: href,
+      page: window.location.pathname
+    });
+  });
+});
+
+// Track PDF downloads (Salary Guide)
+document.querySelectorAll('a[href$=".pdf"]').forEach(function(link) {
+  link.addEventListener('click', function() {
+    gaTrack('file_download', {
+      file_name: link.getAttribute('href'),
+      file_type: 'pdf',
+      link_text: (link.textContent || '').trim().substring(0, 80)
+    });
+  });
+});
+
+// Track Calendly clicks (outbound + inline widget)
+document.querySelectorAll('a[href*="calendly.com"]').forEach(function(link) {
+  link.addEventListener('click', function() {
+    gaTrack('calendly_click', {
+      destination: link.getAttribute('href'),
+      page: window.location.pathname
+    });
+  });
+});
+
+// Track Calendly booking completion (when user actually books via inline widget)
+window.addEventListener('message', function(e) {
+  if (e.data && e.data.event && e.data.event.indexOf('calendly') === 0) {
+    if (e.data.event === 'calendly.event_scheduled') {
+      gaTrack('booking_completed', {
+        source: 'calendly_inline',
+        page: window.location.pathname
+      });
+    }
+  }
+});
+
+// Track contact form submission
+var contactForm = document.getElementById('contactForm');
+if (contactForm) {
+  contactForm.addEventListener('submit', function() {
+    var roleEl = document.getElementById('role');
+    gaTrack('form_submit', {
+      form_name: 'contact_form',
+      role_selected: roleEl ? roleEl.value : '',
+      page: window.location.pathname
+    });
+  });
+}
+
+// Track ROI calculator usage
+var calcBtn = document.querySelector('button[onclick*="calculateSavings"]');
+if (calcBtn) {
+  calcBtn.addEventListener('click', function() {
+    var roleEl = document.getElementById('calcRole');
+    var salaryEl = document.getElementById('calcSalary');
+    gaTrack('roi_calculated', {
+      role: roleEl ? roleEl.value : '',
+      local_salary: salaryEl ? salaryEl.value : ''
+    });
+  });
+}
+
+// Track scroll depth (25%, 50%, 75%, 100%)
+var scrollMarks = { 25: false, 50: false, 75: false, 100: false };
+window.addEventListener('scroll', function() {
+  var docHeight = document.documentElement.scrollHeight - window.innerHeight;
+  if (docHeight <= 0) return;
+  var pct = Math.round((window.scrollY / docHeight) * 100);
+  [25, 50, 75, 100].forEach(function(mark) {
+    if (pct >= mark && !scrollMarks[mark]) {
+      scrollMarks[mark] = true;
+      gaTrack('scroll_depth', { percent: mark, page: window.location.pathname });
+    }
+  });
+});
+
+// Track industry card clicks (homepage + industries page)
+document.querySelectorAll('.industry-card, .industry-tag').forEach(function(card) {
+  card.addEventListener('click', function() {
+    var name = (card.querySelector('h3') || card).textContent.trim();
+    gaTrack('industry_click', { industry: name.substring(0, 60) });
+  });
+});
+
 // === Animated Counters (if any remain) ===
 function animateCounter(el) {
   var target = parseFloat(el.getAttribute('data-target'));
