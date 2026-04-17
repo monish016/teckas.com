@@ -1,3 +1,130 @@
+// === Exit-Intent Popup (Salary Guide Lead Magnet) ===
+(function() {
+  // Don't show on contact, thank-you, or landing pages
+  var suppressedPaths = ['/contact.html', '/get-started/'];
+  var currentPath = window.location.pathname;
+  for (var i = 0; i < suppressedPaths.length; i++) {
+    if (currentPath.indexOf(suppressedPaths[i]) !== -1) return;
+  }
+
+  // Honor "already shown" flag (24h cookie via localStorage timestamp)
+  var lastShown = localStorage.getItem('teckas_exit_popup_ts');
+  if (lastShown && (Date.now() - parseInt(lastShown, 10)) < 24 * 60 * 60 * 1000) return;
+
+  // Compute correct path to the PDF based on current page depth
+  var pathDepth = (currentPath.match(/\//g) || []).length - 1;
+  var pdfPath = (pathDepth > 0 ? '../'.repeat(pathDepth) : '') + 'downloads/Teckas_Salary_Guide_2026.pdf';
+
+  // Build popup HTML
+  var overlay = document.createElement('div');
+  overlay.className = 'exit-popup-overlay';
+  overlay.id = 'exitPopup';
+  overlay.innerHTML =
+    '<div class="exit-popup" role="dialog" aria-modal="true" aria-labelledby="exitPopupTitle">' +
+      '<button class="close-btn" aria-label="Close popup" id="exitClose">&times;</button>' +
+      '<div id="exitPopupBody">' +
+        '<h2 id="exitPopupTitle">Before you go - save 60-70% on staffing</h2>' +
+        '<p class="popup-lead">Get our free Remote Staffing Salary Guide with US vs India cost comparisons across 8 role categories.</p>' +
+        '<ul class="popup-benefits">' +
+          '<li>Cost breakdown for 8 roles (VAs, SDRs, developers, more)</li>' +
+          '<li>Real salary ranges from BLS, Glassdoor, Indeed</li>' +
+          '<li>Tools every remote professional should know</li>' +
+        '</ul>' +
+        '<form id="exitPopupForm">' +
+          '<input type="email" name="email" placeholder="you@company.com" required autocomplete="email" />' +
+          '<button type="submit" class="btn btn-orange popup-submit">Download Free Guide &rarr;</button>' +
+          '<p class="disclaimer">No spam. Unsubscribe anytime.</p>' +
+        '</form>' +
+      '</div>' +
+      '<div id="exitPopupSuccess" class="popup-success" style="display:none;">' +
+        '<h2>Thank you!</h2>' +
+        '<p>Your download is starting. Check your email for a copy.</p>' +
+      '</div>' +
+    '</div>';
+  document.body.appendChild(overlay);
+
+  var triggered = false;
+  function show() {
+    if (triggered) return;
+    triggered = true;
+    overlay.classList.add('active');
+    if (typeof gtag === 'function') gtag('event', 'exit_popup_shown', { page: currentPath });
+  }
+  function dismiss() {
+    overlay.classList.remove('active');
+    localStorage.setItem('teckas_exit_popup_ts', Date.now().toString());
+  }
+
+  // Desktop: mouse leaves top of viewport
+  document.addEventListener('mouseleave', function(e) {
+    if (e.clientY < 40) show();
+  });
+
+  // Mobile/tablet: scroll up fast (back-navigation intent) + 30s fallback
+  var lastScrollY = window.scrollY;
+  var lastScrollTime = Date.now();
+  window.addEventListener('scroll', function() {
+    var now = Date.now();
+    var deltaY = window.scrollY - lastScrollY;
+    var deltaT = now - lastScrollTime;
+    // Fast upward scroll while past fold
+    if (deltaY < -200 && deltaT < 400 && window.scrollY > 400 && window.innerWidth < 768) {
+      show();
+    }
+    lastScrollY = window.scrollY;
+    lastScrollTime = now;
+  });
+
+  // Close handlers
+  document.getElementById('exitClose').addEventListener('click', dismiss);
+  overlay.addEventListener('click', function(e) {
+    if (e.target === overlay) dismiss();
+  });
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && overlay.classList.contains('active')) dismiss();
+  });
+
+  // Form submission
+  document.getElementById('exitPopupForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    var emailInput = this.querySelector('input[name=email]');
+    var email = emailInput.value.trim();
+    if (!email) return;
+
+    var fd = new FormData();
+    fd.append('access_key', '0eba246d-5210-4e20-b7ec-823aca4a3671');
+    fd.append('subject', 'Salary Guide Download - Exit Popup');
+    fd.append('from_name', 'Teckas Exit Popup');
+    fd.append('email', email);
+    fd.append('source', 'exit_intent_popup');
+    fd.append('page', currentPath);
+
+    // Fire and forget - we do not block the download
+    fetch('https://api.web3forms.com/submit', { method: 'POST', body: fd }).catch(function() {});
+
+    if (typeof gtag === 'function') {
+      gtag('event', 'lead_capture', { source: 'exit_popup', page: currentPath });
+      gtag('event', 'file_download', { file_name: 'Teckas_Salary_Guide_2026.pdf', file_type: 'pdf' });
+    }
+
+    // Show success state
+    document.getElementById('exitPopupBody').style.display = 'none';
+    document.getElementById('exitPopupSuccess').style.display = 'block';
+
+    // Trigger download
+    var a = document.createElement('a');
+    a.href = pdfPath;
+    a.download = 'Teckas_Salary_Guide_2026.pdf';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+
+    // Mark as shown and auto-close after 3s
+    localStorage.setItem('teckas_exit_popup_ts', Date.now().toString());
+    setTimeout(function() { overlay.classList.remove('active'); }, 3000);
+  });
+})();
+
 // === Mobile Menu Toggle ===
 var mobileMenuBtn = document.getElementById('mobileMenuBtn');
 var navLinks = document.getElementById('navLinks');

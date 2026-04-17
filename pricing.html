@@ -66,8 +66,64 @@
       </div>
     </section>
 
+    <!-- ============ ROI CALCULATOR (MOVED TO TOP) ============ -->
+    <section class="section" id="calculator">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge">Start Here</span>
+          <h2>Calculate Your Savings</h2>
+          <p>See exactly how much you could save by hiring through Teckas instead of locally. Takes 30 seconds.</p>
+        </div>
+        <div class="calculator-widget">
+          <div class="calc-field">
+            <label for="calcRole">Select Role Category</label>
+            <select id="calcRole">
+              <option value="">Choose a role...</option>
+              <option value="va">Virtual Assistant / Admin</option>
+              <option value="support">Customer Support</option>
+              <option value="sales">Sales / SDR</option>
+              <option value="bookkeeping">Bookkeeping / Accounting</option>
+              <option value="marketing">Digital Marketing</option>
+              <option value="design">Design / Creative</option>
+              <option value="dev">Software Development</option>
+              <option value="qa">QA / Testing</option>
+              <option value="ops">Operations / Project Management</option>
+            </select>
+          </div>
+          <div class="calc-field">
+            <label for="calcSalary">What would you pay locally? ($/year)</label>
+            <input type="number" id="calcSalary" placeholder="e.g. 65000" />
+          </div>
+          <div class="calc-field">
+            <label for="calcHires">Number of hires</label>
+            <input type="number" id="calcHires" value="1" min="1" />
+          </div>
+          <button class="btn btn-blue" onclick="calculateSavings()" style="width:100%;">Calculate My Savings &rarr;</button>
+          <div id="calcResults" class="calc-results" style="display:none;">
+            <div class="calc-comparison">
+              <div class="calc-box local">
+                <div class="calc-label">Local Hire (Annual)</div>
+                <div class="calc-amount" id="localCost">$0</div>
+              </div>
+              <div class="calc-box teckas">
+                <div class="calc-label">With Teckas (Annual)</div>
+                <div class="calc-amount" id="teckasCost">$0</div>
+              </div>
+            </div>
+            <div class="calc-savings">
+              <div class="savings-label">Your Annual Savings</div>
+              <div class="savings-amount" id="savingsAmount">$0</div>
+            </div>
+            <div style="text-align:center; margin-top:20px;">
+              <a href="contact.html" class="btn btn-orange">Book a Free Call to Get Started &rarr;</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- ============ PRICING TIERS ============ -->
-    <section class="section">
+    <section class="section section-gray">
       <div class="container">
         <div class="section-header">
           <span class="section-badge">Plans</span>
@@ -189,60 +245,7 @@
             </tbody>
           </table>
         </div>
-        <p class="text-center mt-24" style="font-size:18px;font-weight:700;color:var(--green);">See how much you could save - <a href="#calculator" style="color:var(--blue);text-decoration:underline;">try the calculator below</a></p>
-      </div>
-    </section>
-
-    <!-- ============ ROI CALCULATOR ============ -->
-    <section class="section" id="calculator">
-      <div class="container">
-        <div class="section-header">
-          <span class="section-badge">Calculator</span>
-          <h2>Calculate Your Savings</h2>
-          <p>See exactly how much you could save by hiring through Teckas instead of locally.</p>
-        </div>
-        <div class="calculator-widget">
-          <div class="calc-field">
-            <label for="calcRole">Select Role Category</label>
-            <select id="calcRole">
-              <option value="">Choose a role...</option>
-              <option value="va">Virtual Assistant / Admin</option>
-              <option value="support">Customer Support</option>
-              <option value="sales">Sales / SDR</option>
-              <option value="bookkeeping">Bookkeeping / Accounting</option>
-              <option value="marketing">Digital Marketing</option>
-              <option value="design">Design / Creative</option>
-              <option value="dev">Software Development</option>
-              <option value="qa">QA / Testing</option>
-              <option value="ops">Operations / Project Management</option>
-            </select>
-          </div>
-          <div class="calc-field">
-            <label for="calcSalary">What would you pay locally? ($/year)</label>
-            <input type="number" id="calcSalary" placeholder="e.g. 65000" />
-          </div>
-          <div class="calc-field">
-            <label for="calcHires">Number of hires</label>
-            <input type="number" id="calcHires" value="1" min="1" />
-          </div>
-          <button class="btn btn-blue" onclick="calculateSavings()" style="width:100%;">Calculate My Savings &rarr;</button>
-          <div id="calcResults" class="calc-results" style="display:none;">
-            <div class="calc-comparison">
-              <div class="calc-box local">
-                <div class="calc-label">Local Hire (Annual)</div>
-                <div class="calc-amount" id="localCost">$0</div>
-              </div>
-              <div class="calc-box teckas">
-                <div class="calc-label">With Teckas (Annual)</div>
-                <div class="calc-amount" id="teckasCost">$0</div>
-              </div>
-            </div>
-            <div class="calc-savings">
-              <div class="savings-label">Your Annual Savings</div>
-              <div class="savings-amount" id="savingsAmount">$0</div>
-            </div>
-          </div>
-        </div>
+        <p class="text-center mt-24"><a href="#calculator" style="color:var(--blue);text-decoration:underline;font-weight:600;">&uarr; Scroll up to calculate your specific savings</a></p>
       </div>
     </section>
 
@@ -318,6 +321,7 @@
   </div>
 
   <script src="js/main.js"></script>
+  <script src="js/tawk.js"></script>
   <script>
   // === ROI Calculator (inline for reliability) ===
   var calcRoles = {
