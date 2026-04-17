@@ -176,7 +176,11 @@
           <p>Fill out the form below and our talent team will review your profile within 48 hours.</p>
         </div>
         <div style="background:var(--white); border:1px solid var(--border); border-radius:var(--radius-lg); padding:36px;">
-          <form class="contact-form">
+          <form class="contact-form" action="https://api.web3forms.com/submit" method="POST" enctype="multipart/form-data" id="careersForm">
+            <input type="hidden" name="access_key" value="0eba246d-5210-4e20-b7ec-823aca4a3671" />
+            <input type="hidden" name="subject" value="New Career Application - Teckas" />
+            <input type="hidden" name="from_name" value="Teckas Careers" />
+            <input type="checkbox" name="botcheck" style="display:none;" />
             <div class="form-group">
               <label for="applicant-name">Full Name</label>
               <input type="text" id="applicant-name" name="name" placeholder="Your full name" required />
@@ -234,8 +238,53 @@
               <input type="file" id="applicant-resume" name="resume" accept=".pdf,.doc,.docx" style="padding:10px; background:var(--light-gray);" />
               <p style="font-size:12px; color:var(--text-light); margin-top:4px;">Accepted formats: PDF, DOC, DOCX (max 5MB)</p>
             </div>
-            <button type="submit" class="btn btn-blue" style="width:100%;">Submit Application &rarr;</button>
+            <button type="submit" class="btn btn-blue" style="width:100%;" id="careersSubmitBtn">Submit Application &rarr;</button>
+            <div id="careersFormResult" style="display:none; margin-top:16px; padding:16px; border-radius:var(--radius-sm); text-align:center; font-weight:600;"></div>
           </form>
+          <script>
+          (function() {
+            var form = document.getElementById('careersForm');
+            var result = document.getElementById('careersFormResult');
+            var submitBtn = document.getElementById('careersSubmitBtn');
+            if (!form) return;
+            form.addEventListener('submit', function(e) {
+              e.preventDefault();
+              submitBtn.disabled = true;
+              submitBtn.textContent = 'Submitting...';
+              var formData = new FormData(form);
+              fetch('https://api.web3forms.com/submit', {
+                method: 'POST',
+                body: formData
+              }).then(function(res) { return res.json(); })
+              .then(function(data) {
+                if (data.success) {
+                  result.style.display = 'block';
+                  result.style.background = '#F0FFF4';
+                  result.style.color = '#38A169';
+                  result.textContent = 'Thank you! Your application has been received. Our talent team will review your profile within 48 hours.';
+                  form.reset();
+                  if (typeof gtag === 'function') {
+                    gtag('event', 'form_submit', { form_name: 'careers_application' });
+                  }
+                } else {
+                  result.style.display = 'block';
+                  result.style.background = '#FFF5F5';
+                  result.style.color = '#E53E3E';
+                  result.textContent = (data.message || 'Something went wrong.') + ' Please email your resume to hello@teckas.com';
+                }
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = 'Submit Application &rarr;';
+              }).catch(function() {
+                result.style.display = 'block';
+                result.style.background = '#FFF5F5';
+                result.style.color = '#E53E3E';
+                result.textContent = 'Connection error. Please email your resume to hello@teckas.com';
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = 'Submit Application &rarr;';
+              });
+            });
+          })();
+          </script>
         </div>
       </div>
     </section>
