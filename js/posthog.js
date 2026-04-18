@@ -12,7 +12,7 @@
 // =====================================================================
 
 (function() {
-  var POSTHOG_API_KEY = 'YOUR_POSTHOG_API_KEY';
+  var POSTHOG_API_KEY = 'phc_uUzWpiffMhSVbR8qWtvY2agAxT8BPERsiytSBd2sACNo';
   var POSTHOG_HOST = 'https://us.i.posthog.com'; // change to https://eu.i.posthog.com for EU cloud
 
   // Do not load placeholder
